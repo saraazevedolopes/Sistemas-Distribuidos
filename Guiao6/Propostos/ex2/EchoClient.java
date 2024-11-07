@@ -16,15 +16,19 @@ public class EchoClient {
 
             String userInput;
             while ((userInput = systemIn.readLine()) != null) {
+                int num = Integer.parseInt(userInput);
                 out.println(userInput);
                 out.flush();
 
                 String response = in.readLine();
+                num = Integer.parseInt(response); // cliente mais a sério
                 System.out.println("Server response: " + response);
             }
-
             socket.shutdownOutput();
-            socket.shutdownInput();
+
+            String response = in.readLine();
+            System.out.println("Média: " + response);
+      
             socket.close();
 
         } catch (Exception e) {

@@ -20,12 +20,19 @@ public class EchoClient {
                 out.flush();
 
                 String response = in.readLine();
-                System.out.println("Server response: " + response);
+                if (response != null) {
+                    System.out.println("Soma até agora: " + response);
+                }
             }
 
-            socket.shutdownOutput();
-            socket.shutdownInput();
-            socket.close();
+            // Se o utilizador pressionar Ctrl+D, sai do loop e finaliza a comunicação
+            socket.shutdownOutput(); // Informa ao servidor que o cliente terminou de enviar dados
+            String average = in.readLine(); // Recebe a média final do servidor, se disponível
+            if (average != null) {
+                System.out.println("Média: " + average);
+            }
+
+            socket.close(); // Fecha o socket após encerrar comunicação com o servidor
 
         } catch (Exception e) {
             e.printStackTrace();

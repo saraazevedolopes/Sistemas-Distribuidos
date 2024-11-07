@@ -29,8 +29,6 @@ public class EchoServer {
                 }
                 int average = count > 0 ? sum / count : 0;
                 out.println(average);
-                // socket.shutdownOutput(); não é preciso, só para ilustrar
-                // socket.shutdownInput();
                 out.flush();
                 socket.close();
             }
