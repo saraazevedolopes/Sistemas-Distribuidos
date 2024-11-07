@@ -15,7 +15,7 @@ class ClientHandler extends Thread { // Classe para tratar cada cliente numa nov
     @Override
     public void run() {
         try (BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-             PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
+             PrintWriter out = new PrintWriter(socket.getOutputStream())) {
 
             int sum = 0;
             int count = 0;
