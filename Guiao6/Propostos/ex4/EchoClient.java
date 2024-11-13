@@ -9,7 +9,7 @@ public class EchoClient {
         try (
             Socket socket = new Socket("localhost", 12345);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            PrintWriter out = new PrintWriter(socket.getOutputStream()); 
             BufferedReader systemIn = new BufferedReader(new InputStreamReader(System.in))
         ) {
             System.out.println("Escreva um número para enviar ao servidor e use Ctrl+D para terminar:");
